@@ -63,10 +63,25 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
+				ftpurple: {
+					light: '#6247AA',
+					DEFAULT: '#583F9E',
+					dark: '#4D3290'
+				},
 				ftblue: {
-					light: '#0096FF',
-					DEFAULT: '#0075E2',
-					dark: '#005BB2'
+					light: '#62BEE3',
+					DEFAULT: '#47B0E0',
+					dark: '#3BA1D1'
+				},
+				ftorange: {
+					light: '#FF8B68',
+					DEFAULT: '#F57242',
+					dark: '#E05E2D'
+				},
+				ftgreen: {
+					light: '#A7D94C',
+					DEFAULT: '#99C93D',
+					dark: '#88B330'
 				},
 				ftgray: {
 					light: '#F8F9FA',

@@ -21,8 +21,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ raised, goal }) => {
     <div className="animate-on-load animate-delay-200">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center">
-          <div className="bg-ftblue/10 p-2 rounded-full mr-3">
-            <DollarSign className="h-6 w-6 text-ftblue" />
+          <div className="bg-ftpurple/10 p-2 rounded-full mr-3">
+            <DollarSign className="h-6 w-6 text-ftpurple" />
           </div>
           <div>
             <div className="font-display font-bold text-2xl">${raised.toLocaleString()}</div>
@@ -43,7 +43,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ raised, goal }) => {
       </div>
       
       <div className="mt-6 text-center">
-        <button className="bg-ftblue text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-ftblue-dark transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]">
+        <button className="ft-btn-primary">
           Donate Now
         </button>
       </div>

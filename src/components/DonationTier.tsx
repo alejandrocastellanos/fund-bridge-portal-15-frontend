@@ -24,9 +24,9 @@ const DonationTier: React.FC<DonationTierProps> = ({
   limitText
 }) => {
   return (
-    <div className={`donation-tier-card ${highlight ? 'ring-2 ring-ftblue/30 shadow-lg' : ''}`}>
+    <div className={`donation-tier-card ${highlight ? 'ring-2 ring-ftpurple/30 shadow-lg' : ''}`}>
       {highlight && (
-        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-ftblue text-white text-xs font-bold py-1 px-3 rounded-full">
+        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-ftpurple text-white text-xs font-bold py-1 px-3 rounded-full">
           Popular
         </div>
       )}
@@ -43,7 +43,7 @@ const DonationTier: React.FC<DonationTierProps> = ({
         {benefits.map((benefit, index) => (
           <div key={index} className="flex items-start">
             <div className="mt-0.5 flex-shrink-0">
-              <Check className="h-5 w-5 text-ftblue" />
+              <Check className="h-5 w-5 text-ftpurple" />
             </div>
             <span className="ml-2 text-gray-700">{benefit.text}</span>
           </div>
@@ -53,8 +53,8 @@ const DonationTier: React.FC<DonationTierProps> = ({
       <div className="mt-6">
         <button className={`w-full py-2.5 px-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] ${
           highlight 
-            ? 'bg-ftblue text-white shadow-md hover:bg-ftblue-dark' 
-            : 'bg-white text-ftblue border-2 border-ftblue/80 hover:bg-ftblue/5'
+            ? 'bg-ftpurple text-white shadow-md hover:bg-ftpurple-dark' 
+            : 'bg-white text-ftpurple border-2 border-ftpurple/80 hover:bg-ftpurple/5'
         }`}>
           Donate ${amount}
         </button>

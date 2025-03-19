@@ -7,6 +7,8 @@ import DonationTier from '@/components/DonationTier';
 import ImpactStats from '@/components/ImpactStats';
 import CampaignInfo from '@/components/CampaignInfo';
 import PodcastSection from '@/components/PodcastSection';
+import PartnershipPackages from '@/components/PartnershipPackages';
+import GrowWithAlliance from '@/components/GrowWithAlliance';
 
 const Index = () => {
   // Animation on scroll effect
@@ -89,8 +91,8 @@ const Index = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div className="font-display font-bold text-xl text-ftblue">First Tuesday</div>
-          <button className="bg-ftblue text-white font-semibold py-2 px-6 rounded-full text-sm hover:bg-ftblue-dark transition-all duration-300">
+          <div className="font-display font-bold text-xl text-ftpurple">First Tuesday</div>
+          <button className="bg-ftpurple text-white font-semibold py-2 px-6 rounded-full text-sm hover:bg-ftpurple-dark transition-all duration-300">
             Donate Now
           </button>
         </div>
@@ -115,7 +117,7 @@ const Index = () => {
                 and every hour served was coordinated manually, through emails, calls, and sheer persistence.
               </p>
               
-              <div className="font-display text-2xl font-bold text-ftblue mb-5">
+              <div className="font-display text-2xl font-bold text-ftpurple mb-5">
                 Now, it's time to scale.
               </div>
               
@@ -129,7 +131,7 @@ const Index = () => {
             {/* Fundraising Goal */}
             <div className="glass-morphism p-6 rounded-2xl mb-12">
               <h2 className="font-display text-2xl font-bold mb-6 text-center">
-                Our fundraising goal: <span className="text-ftblue">$20,000</span>
+                Our fundraising goal: <span className="text-ftpurple">$20,000</span>
               </h2>
               <ProgressBar raised={3000} goal={20000} />
             </div>
@@ -172,6 +174,12 @@ const Index = () => {
       {/* Impact Stats */}
       <ImpactStats />
       
+      {/* Grow With Alliance Section */}
+      <GrowWithAlliance />
+      
+      {/* Partnership Packages */}
+      <PartnershipPackages />
+      
       {/* Campaign Information */}
       <CampaignInfo />
       
@@ -181,16 +189,16 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-white py-12 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="font-display font-bold text-2xl text-ftblue mb-4">First Tuesday</div>
+          <div className="font-display font-bold text-2xl text-ftpurple mb-4">First Tuesday</div>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
             Join us in building something bigger than a volunteer day—help us create a lasting legacy of impact.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-            <button className="bg-ftblue text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-ftblue-dark transition-all duration-300">
+            <button className="ft-btn-primary">
               Donate Now
             </button>
-            <button className="bg-white text-ftblue font-semibold py-3 px-8 rounded-full border-2 border-ftblue hover:bg-ftblue/5 transition-all duration-300">
+            <button className="ft-btn-secondary">
               Sign Up to Volunteer
             </button>
           </div>
