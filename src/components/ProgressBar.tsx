@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { DollarSign } from 'lucide-react';
+import { DollarSign, Clock } from 'lucide-react';
 
 interface ProgressBarProps {
   raised: number;
@@ -40,6 +40,11 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ raised, goal }) => {
           ref={progressRef}
           className="progress-bar-fill"
         />
+      </div>
+      
+      <div className="mt-4 flex items-center justify-center p-3 bg-ftpurple/5 rounded-lg border border-ftpurple/20">
+        <Clock className="h-5 w-5 text-ftpurple mr-2" />
+        <span className="font-display font-bold text-ftpurple">Deadline: May 31, 2025</span>
       </div>
       
       <div className="mt-6 text-center">
