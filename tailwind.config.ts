@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -98,6 +97,9 @@ export default {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
 				display: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
 			},
+			aspectRatio: {
+				'16/9': '16 / 9',
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -161,5 +163,8 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		require('@tailwindcss/aspect-ratio')
+	],
 } satisfies Config;
