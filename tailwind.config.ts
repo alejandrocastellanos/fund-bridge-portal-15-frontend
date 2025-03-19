@@ -95,8 +95,8 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				sans: ['DM Sans', 'Inter', 'system-ui', 'sans-serif'],
-				display: ['Playfair Display', 'SF Pro Display', 'Inter', 'system-ui', 'serif'],
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				display: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
 			},
 			keyframes: {
 				'accordion-down': {
