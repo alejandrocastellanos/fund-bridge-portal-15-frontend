@@ -40,11 +40,8 @@ const PodcastSection: React.FC = () => {
             
             <div className="text-center mt-8">
               <button className="bg-ftblue text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-ftblue-dark transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]">
-                Support & Get Featured
+                Support Our Podcast
               </button>
-              <p className="text-gray-500 text-sm mt-3">
-                Donate $5,000+ to be featured as an Impact Partner
-              </p>
             </div>
           </div>
         </div>

@@ -7,8 +7,8 @@ import DonationTier from '@/components/DonationTier';
 import ImpactStats from '@/components/ImpactStats';
 import CampaignInfo from '@/components/CampaignInfo';
 import PodcastSection from '@/components/PodcastSection';
-import PartnershipPackages from '@/components/PartnershipPackages';
 import GrowWithAlliance from '@/components/GrowWithAlliance';
+import VideoSection from '@/components/VideoSection';
 
 const Index = () => {
   // Animation on scroll effect
@@ -91,7 +91,11 @@ const Index = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div className="font-display font-bold text-xl text-ftpurple">First Tuesday</div>
+          <img 
+            src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/yNs6MDaUC3lENJrSOcmE/media/64c3ef5114592c85c49e1956.png" 
+            alt="First Tuesday Logo" 
+            className="h-8"
+          />
           <button className="bg-ftpurple text-white font-semibold py-2 px-6 rounded-full text-sm hover:bg-ftpurple-dark transition-all duration-300">
             Donate Now
           </button>
@@ -171,14 +175,14 @@ const Index = () => {
         </div>
       </section>
       
+      {/* Video Section */}
+      <VideoSection />
+      
       {/* Impact Stats */}
       <ImpactStats />
       
       {/* Grow With Alliance Section */}
       <GrowWithAlliance />
-      
-      {/* Partnership Packages */}
-      <PartnershipPackages />
       
       {/* Campaign Information */}
       <CampaignInfo />
@@ -189,7 +193,11 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-white py-12 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="font-display font-bold text-2xl text-ftpurple mb-4">First Tuesday</div>
+          <img 
+            src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/yNs6MDaUC3lENJrSOcmE/media/64c3ef5114592c85c49e1956.png" 
+            alt="First Tuesday Logo" 
+            className="h-16 mx-auto mb-6"
+          />
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
             Join us in building something bigger than a volunteer day—help us create a lasting legacy of impact.
           </p>
