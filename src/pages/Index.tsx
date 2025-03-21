@@ -9,6 +9,7 @@ import CampaignInfo from '@/components/CampaignInfo';
 import PodcastSection from '@/components/PodcastSection';
 import GrowWithAlliance from '@/components/GrowWithAlliance';
 import VideoSection from '@/components/VideoSection';
+import ScrollAnimationDemo from '@/components/ScrollAnimationDemo';
 
 const Index = () => {
   // Animation on scroll effect
@@ -104,6 +105,9 @@ const Index = () => {
 
       {/* Hero Section */}
       <Hero />
+      
+      {/* Scroll Animation Demo */}
+      <ScrollAnimationDemo />
       
       {/* Main Fundraising Section */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
