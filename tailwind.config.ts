@@ -140,6 +140,28 @@ export default {
 				'pulse-light': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' }
+				},
+				"aurora": {
+					"0%": {
+						backgroundPosition: "0% 50%, 50% 50%",
+						opacity: "0.5"
+					},
+					"25%": {
+						backgroundPosition: "20% 50%, 65% 50%",
+						opacity: "0.65"
+					},
+					"50%": {
+						backgroundPosition: "50% 50%, 50% 50%",
+						opacity: "0.45"
+					},
+					"75%": {
+						backgroundPosition: "65% 50%, 35% 50%",
+						opacity: "0.7"
+					},
+					"100%": {
+						backgroundPosition: "100% 50%, 50% 50%",
+						opacity: "0.5"
+					}
 				}
 			},
 			animation: {
@@ -150,7 +172,8 @@ export default {
 				'scale-in': 'scale-in 0.5s ease-out',
 				'progress-fill': 'progress-fill 1.8s ease-out forwards',
 				'float': 'float 6s ease-in-out infinite',
-				'pulse-light': 'pulse-light 3s ease-in-out infinite'
+				'pulse-light': 'pulse-light 3s ease-in-out infinite',
+				"aurora": "aurora 15s linear infinite"
 			},
 			backdropFilter: {
 				'none': 'none',
