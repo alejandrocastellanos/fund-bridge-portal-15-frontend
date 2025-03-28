@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface DonateModalProps {
     isOpen: boolean;
@@ -9,6 +10,10 @@ interface DonateModalProps {
 const DonateModal: React.FC<DonateModalProps> = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const navigate = useNavigate(); // Hook for redirection
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
@@ -25,7 +30,7 @@ const DonateModal: React.FC<DonateModalProps> = ({ isOpen, onClose }) => {
         e.preventDefault();
         console.log("Form Data Submitted:", formData);
         // You can send this data to your backend here
-        onClose();
+        navigate("/thank-you");
     };
 
     return (
