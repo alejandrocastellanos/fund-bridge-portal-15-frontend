@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { useState } from "react";
 import Hero from '@/components/Hero';
 import ProgressBar from '@/components/ProgressBar';
 import DonorsList from '@/components/DonorsList';
@@ -10,6 +11,7 @@ import PodcastSection from '@/components/PodcastSection';
 import GrowWithAlliance from '@/components/GrowWithAlliance';
 import VideoSection from '@/components/VideoSection';
 import ScrollAnimationDemo from '@/components/ScrollAnimationDemo';
+import DonateModal from '@/components/DonateModal';
 
 const Index = () => {
   // Animation on scroll effect
@@ -87,6 +89,8 @@ const Index = () => {
     }
   ];
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -97,11 +101,17 @@ const Index = () => {
             alt="First Tuesday Logo" 
             className="h-8"
           />
-          <button className="bg-ftpurple text-white font-semibold py-2 px-6 rounded-full text-sm hover:bg-ftpurple-dark transition-all duration-300">
+          <button
+              onClick={() => setIsOpen(true)}
+              className="bg-ftpurple text-white font-semibold py-2 px-6 rounded-full text-sm hover:bg-ftpurple-dark transition-all duration-300"
+          >
             Donate Now
           </button>
         </div>
       </header>
+
+      {/* Modal Component */}
+      <DonateModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
 
       {/* Hero Section */}
       <Hero />
@@ -207,7 +217,7 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-            <button className="ft-btn-primary">
+            <button onClick={() => setIsOpen(true)} className="ft-btn-primary">
               Donate Now
             </button>
             <button className="ft-btn-secondary">

@@ -1,9 +1,12 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 import { motion } from 'framer-motion';
+import DonateModal from "@/components/DonateModal.tsx";
 
 const Hero: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <AuroraBackground className="h-auto py-20 md:py-32">
       <motion.div
@@ -44,9 +47,11 @@ const Hero: React.FC = () => {
           transition={{ delay: 0.6, duration: 0.5 }}
           className="mt-8"
         >
-          <button className="ft-btn-primary">
+          <button onClick={() => setIsOpen(true)} className="ft-btn-primary">
             Donate Now
           </button>
+          {/* Modal Component */}
+          <DonateModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
         </motion.div>
       </motion.div>
     </AuroraBackground>
