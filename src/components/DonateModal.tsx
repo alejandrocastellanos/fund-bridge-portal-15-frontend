@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 interface DonateModalProps {
     isOpen: boolean;
@@ -16,21 +17,48 @@ const DonateModal: React.FC<DonateModalProps> = ({ isOpen, onClose }) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [formData, setFormData] = useState({
         name: "",
-        phone: "",
+        phone_number: "",
         email: "",
-        amount: "",
-        donationType: "public", // Default selection
+        donation_amount: "",
+        is_public: true,
     });
 
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        setFormData((prev) => ({
+            ...prev,
+            [name]: name === "is_public" ? value === "public" : value,
+        }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log("Form Data Submitted:", formData);
-        // You can send this data to your backend here
-        navigate("/thank-you");
+
+        try {
+            console.log(JSON.stringify(formData));
+            const response = await fetch("/api/donate/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+                mode: "cors",
+            });
+
+            if (!response.ok) {
+                throw new Error("Error en la solicitud");
+            }
+
+            const data = await response.json();
+            console.log("Éxito:", data);
+            navigate("/thank-you");
+        } catch (error) {
+            console.error("Error en la donación:", error);
+        }
     };
 
     return (
@@ -53,8 +81,8 @@ const DonateModal: React.FC<DonateModalProps> = ({ isOpen, onClose }) => {
                     {/* Phone */}
                     <input
                         type="tel"
-                        name="phone"
-                        value={formData.phone}
+                        name="phone_number"
+                        value={formData.phone_number}
                         onChange={handleChange}
                         placeholder="Phone Number"
                         className="border border-gray-300 p-2 rounded"
@@ -75,8 +103,8 @@ const DonateModal: React.FC<DonateModalProps> = ({ isOpen, onClose }) => {
                     {/* Donation Amount */}
                     <input
                         type="number"
-                        name="amount"
-                        value={formData.amount}
+                        name="donation_amount"
+                        value={formData.donation_amount}
                         onChange={handleChange}
                         placeholder="Donation Amount ($)"
                         className="border border-gray-300 p-2 rounded"
@@ -85,8 +113,8 @@ const DonateModal: React.FC<DonateModalProps> = ({ isOpen, onClose }) => {
 
                     {/* Private/Public Donation */}
                     <select
-                        name="donationType"
-                        value={formData.donationType}
+                        name="is_public"
+                        value={formData.is_public ? "public" : "private"}
                         onChange={handleChange}
                         className="border border-gray-300 p-2 rounded"
                     >

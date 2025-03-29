@@ -91,6 +91,31 @@ const Index = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const [totalRaised, setTotalRaised] = useState(0);
+
+  useEffect(() => {
+    const fetchTotalDonations = async () => {
+      try {
+        const response = await fetch("/api/total-donations/", {
+          method: "GET",
+          mode: "cors",
+        });
+
+        if (!response.ok) {
+          throw new Error("Error en la solicitud");
+        }
+
+        const data = await response.json();
+        console.log("Éxito:", data);
+        setTotalRaised(data.total_donation_amount);
+      } catch (error) {
+        console.error("Error en la donación:", error);
+      }
+    };
+
+    fetchTotalDonations();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -151,7 +176,7 @@ const Index = () => {
               <h2 className="font-display text-2xl font-bold mb-6 text-center">
                 Our fundraising goal: <span className="text-ftpurple">$20,000</span>
               </h2>
-              <ProgressBar raised={3000} goal={20000} />
+              <ProgressBar raised={totalRaised} goal={200000} />
             </div>
             
             {/* Donation Tiers */}

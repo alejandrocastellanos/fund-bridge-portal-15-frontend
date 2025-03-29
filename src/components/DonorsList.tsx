@@ -1,6 +1,10 @@
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Heart, UserRound } from 'lucide-react';
+
+import { formatDistanceToNow } from "date-fns";
+import { enUS } from "date-fns/locale";
+
 
 interface Donor {
   id: number;
@@ -11,45 +15,40 @@ interface Donor {
   isAnonymous?: boolean;
 }
 
-const donors: Donor[] = [
-  {
-    id: 1,
-    name: "Anonymous",
-    amount: 500,
-    date: "2 hours ago",
-    isAnonymous: true
-  },
-  {
-    id: 2,
-    name: "Sarah Johnson",
-    amount: 250,
-    date: "5 hours ago",
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
-  },
-  {
-    id: 3,
-    name: "Michael Chen",
-    amount: 1000,
-    date: "Yesterday",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
-  },
-  {
-    id: 4,
-    name: "Emily Rodriguez",
-    amount: 100,
-    date: "3 days ago",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
-  },
-  {
-    id: 5,
-    name: "Anonymous",
-    amount: 150,
-    date: "3 days ago",
-    isAnonymous: true
-  }
-];
-
 const DonorsList: React.FC = () => {
+
+  const [donors, setDonors] = useState<Donor[]>([]);
+
+  useEffect(() => {
+    const fetchTotalDonations = async () => {
+      try {
+        const response = await fetch("/api/last-donations/", {
+          method: "GET",
+          mode: "cors",
+        });
+
+        if (!response.ok) {
+          throw new Error("Error en la solicitud");
+        }
+
+        const data = await response.json();
+        console.log("Éxito:", data);
+        const formattedDonors: Donor[] = data.map((donor: never, index: number) => ({
+          id: index + 1,
+          name: donor.name || "Anonymous",
+          amount: parseFloat(donor.donation_amount),
+          date: formatDistanceToNow(new Date(donor.created_at), { locale: enUS, addSuffix: true }),
+        }));
+        setDonors(formattedDonors);
+
+      } catch (error) {
+        console.error("Error en la donación:", error);
+      }
+    };
+
+    fetchTotalDonations();
+  }, []);
+
   return (
     <div className="animate-on-load animate-delay-300">
       <div className="flex items-center mb-4">
@@ -71,7 +70,7 @@ const DonorsList: React.FC = () => {
                   </div>
                 ) : (
                   <img 
-                    src={donor.image} 
+                    src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
                     alt={donor.name} 
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -103,7 +102,7 @@ const DonorsList: React.FC = () => {
               </div>
             ) : (
               <img 
-                src={donor.image} 
+                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
                 alt={donor.name} 
                 className="w-full h-full object-cover"
                 loading="lazy"

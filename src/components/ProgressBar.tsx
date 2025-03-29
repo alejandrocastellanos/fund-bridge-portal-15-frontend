@@ -1,6 +1,7 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { DollarSign, Clock } from 'lucide-react';
+import DonateModal from "@/components/DonateModal.tsx";
 
 interface ProgressBarProps {
   raised: number;
@@ -8,6 +9,7 @@ interface ProgressBarProps {
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ raised, goal }) => {
+    const [isOpen, setIsOpen] = useState(false);
   const progressRef = useRef<HTMLDivElement>(null);
   const percentage = Math.min(Math.round((raised / goal) * 100), 100);
   
@@ -34,23 +36,25 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ raised, goal }) => {
           <div className="text-sm text-gray-500">funded</div>
         </div>
       </div>
-      
+
       <div className="progress-bar-container backdrop-blur">
-        <div 
+        <div
           ref={progressRef}
           className="progress-bar-fill"
         />
       </div>
-      
+
       <div className="mt-4 flex items-center justify-center p-3 bg-ftpurple/5 rounded-lg border border-ftpurple/20">
         <Clock className="h-5 w-5 text-ftpurple mr-2" />
         <span className="font-display font-bold text-ftpurple">Deadline: May 31, 2025</span>
       </div>
-      
+
       <div className="mt-6 text-center">
-        <button className="ft-btn-primary">
-          Donate Now
-        </button>
+          <button onClick={() => setIsOpen(true)} className="ft-btn-primary">
+              Donate Now
+          </button>
+          {/* Modal Component */}
+          <DonateModal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
       </div>
     </div>
   );
