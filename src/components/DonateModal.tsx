@@ -40,7 +40,7 @@ const DonateModal: React.FC<DonateModalProps> = ({ isOpen, onClose }) => {
 
         try {
             console.log(JSON.stringify(formData));
-            const response = await fetch("/api/donate/", {
+            const response = await fetch("https://fund-bridge-portal-15-backend.onrender.com/api/donate/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

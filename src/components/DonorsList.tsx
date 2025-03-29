@@ -22,7 +22,7 @@ const DonorsList: React.FC = () => {
   useEffect(() => {
     const fetchTotalDonations = async () => {
       try {
-        const response = await fetch("/api/last-donations/", {
+        const response = await fetch("https://fund-bridge-portal-15-backend.onrender.com/api/last-donations/", {
           method: "GET",
           mode: "cors",
         });
