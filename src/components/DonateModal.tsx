@@ -55,7 +55,7 @@ const DonateModal: React.FC<DonateModalProps> = ({ isOpen, onClose }) => {
 
             const data = await response.json();
             console.log("Éxito:", data);
-            navigate("/thank-you");
+            navigate("/fund-bridge-portal-15-frontend/thank-you");
         } catch (error) {
             console.error("Error en la donación:", error);
         }
