@@ -96,7 +96,7 @@ const Index = () => {
   useEffect(() => {
     const fetchTotalDonations = async () => {
       try {
-        const response = await fetch("/api/total-donations/", {
+        const response = await fetch("https://fund-bridge-portal-15-backend.onrender.com/api/total-donations/", {
           method: "GET",
           mode: "cors",
         });
