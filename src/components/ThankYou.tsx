@@ -9,7 +9,7 @@ const ThankYou: React.FC = () => {
                 We appreciate your donation. We will reach out to you in the next few days.
             </p>
             <Link
-                to="/"
+                to="/fund-bridge-portal-15-frontend"
                 className="mt-4 bg-ftpurple text-white px-4 py-2 rounded hover:bg-ftpurple-dark transition"
             >
                 Go Back Home
